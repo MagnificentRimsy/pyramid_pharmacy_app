@@ -6,6 +6,7 @@ import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
+const inActiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -14,6 +15,20 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inActiveCardColor;
+  Color femaleCardColor = inActiveCardColor;
+
+  //0 = female 1 = male
+  void updateCardColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == inActiveCardColor) {
+        maleCardColor = activeCardColor;
+      } else {
+        maleCardColor = inActiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +41,19 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: new ReusableCard(
-                    cardChild: IconContent(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'MALE',
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateCardColor(1);
+                      });
+                    },
+                    child: new ReusableCard(
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                      colour: maleCardColor,
                     ),
-                    colour: activeCardColor,
                   ),
                 ),
                 Expanded(
@@ -40,7 +62,7 @@ class _InputPageState extends State<InputPage> {
                       icon: FontAwesomeIcons.venus,
                       label: 'FEMALE',
                     ),
-                    colour: activeCardColor,
+                    colour: femaleCardColor,
                   ),
                 ),
               ],
