@@ -36,8 +36,8 @@ class _InputPageState extends State<InputPage> {
                       label: 'MALE',
                     ),
                     colour: selectedGender == Gender.Male
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                   ),
                 ),
                 Expanded(
@@ -52,8 +52,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == Gender.Female
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                   ),
                 ),
               ],
@@ -61,7 +61,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: new ReusableCard(
-              colour: activeCardColor,
+              colour: kActiveCardColor,
             ),
           ),
           Expanded(
@@ -69,12 +69,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: new ReusableCard(
-                    colour: activeCardColor,
+                    colour: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: new ReusableCard(
-                    colour: activeCardColor,
+                    colour: kActiveCardColor,
                   ),
                 ),
               ],
@@ -82,8 +82,8 @@ class _InputPageState extends State<InputPage> {
           ),
           Container(
             margin: EdgeInsets.only(top: 10.0),
-            color: bottomContainerColor,
-            height: bottomContainerHeight,
+            color: kBottomContainerColor,
+            height: kBottomContainerHeight,
             width: double.infinity,
           )
         ],
