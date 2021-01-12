@@ -53,39 +53,35 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: new ReusableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.Male;
                       });
                     },
-                    child: new ReusableCard(
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        label: 'MALE',
-                      ),
-                      colour: selectedGender == Gender.Male
-                          ? activeCardColor
-                          : inActiveCardColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
+                    colour: selectedGender == Gender.Male
+                        ? activeCardColor
+                        : inActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: new ReusableCard(
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.Female;
                       });
                     },
-                    child: new ReusableCard(
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
-                      ),
-                      colour: selectedGender == Gender.Female
-                          ? activeCardColor
-                          : inActiveCardColor,
-                    ),
+                    colour: selectedGender == Gender.Female
+                        ? activeCardColor
+                        : inActiveCardColor,
                   ),
                 ),
               ],
