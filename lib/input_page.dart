@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'constant.dart';
 import 'container.dart';
 import 'icon_content.dart';
-
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const inActiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color(0xFFEB1555);
-
-enum Gender { Male, Female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -18,28 +12,6 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  // Color maleCardColor = inActiveCardColor;
-  // Color femaleCardColor = inActiveCardColor;
-  //
-  // void updateCardColor(Gender selectedGender) {
-  //   if (selectedGender == Gender.Male) {
-  //     if (maleCardColor == inActiveCardColor) {
-  //       maleCardColor = activeCardColor;
-  //       femaleCardColor = inActiveCardColor;
-  //     } else {
-  //       maleCardColor = inActiveCardColor;
-  //     }
-  //   }
-  //   // For female card
-  //   else {
-  //     if (femaleCardColor == inActiveCardColor) {
-  //       femaleCardColor = activeCardColor;
-  //       maleCardColor = inActiveCardColor;
-  //     } else {
-  //       femaleCardColor = inActiveCardColor;
-  //     }
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
