@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'constant.dart';
+import '../constant.dart';
 
 class BottomButton extends StatelessWidget {
   const BottomButton({@required this.buttonText, @required this.route});
