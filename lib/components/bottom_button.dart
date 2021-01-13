@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 
 class BottomButton extends StatelessWidget {
-  const BottomButton({@required this.buttonText, @required this.route});
+  const BottomButton({@required this.buttonText, @required this.onTap});
 
   final String buttonText;
-  final String route;
+  final Function onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, route);
-      },
+      onTap: onTap,
       child: Container(
         child: Center(
           child: Text(
