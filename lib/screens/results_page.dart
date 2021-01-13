@@ -6,8 +6,15 @@ import 'package:flutter/material.dart';
 import '../components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
+  static const routeName = '/result';
+  ResultPage({this.bmiResult, this.resultText, this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
   @override
   Widget build(BuildContext context) {
+    final ResultPage resultPage = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
@@ -36,18 +43,21 @@ class ResultPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Center(
-                      child: Text('OVERWEIGHT', style: kResultTextStyle),
+                      child: Text(
+                        resultPage.resultText,
+                        style: kResultTextStyle,
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Text(
-                      '28.4',
+                      resultPage.bmiResult,
                       style: kBMITextStyle,
                     ),
                   ),
                   Expanded(
                     child: Text(
-                      'You have more weight than normal body weight. Try exercising more.',
+                      resultPage.interpretation,
                       textAlign: TextAlign.center,
                       style: kBodyTextStyle,
                     ),
@@ -58,7 +68,12 @@ class ResultPage extends StatelessWidget {
           ),
           BottomButton(
             buttonText: 'RE - CALCULATE',
-            route: '/',
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/',
+              );
+            },
           ),
         ],
       ),
