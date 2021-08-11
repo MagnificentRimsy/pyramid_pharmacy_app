@@ -1,6 +1,6 @@
-import 'package:BMI_calculator/calculator_brain.dart';
-import 'package:BMI_calculator/components/round_button_icon.dart';
-import 'package:BMI_calculator/screens/results_page.dart';
+import 'package:pyramid_pharmacy/calculator_brain.dart';
+import 'package:pyramid_pharmacy/components/round_button_icon.dart';
+import 'package:pyramid_pharmacy/screens/results_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,12 +25,45 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-      ),
+     
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          
+        Padding(
+          padding: EdgeInsets.fromLTRB(30, 50, 30, 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              GestureDetector(
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 24,
+                    color: Colors.black54,
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                ),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              ),
+              Text(
+                'Calculate your BMI',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: kActiveCardColor,
+                    fontWeight: FontWeight.bold),
+              ),
+              Container(height: 24, width: 24)
+            ],
+          ),
+        ),
+        
           Expanded(
             child: Row(
               children: [
@@ -98,8 +131,8 @@ class _InputPageState extends State<InputPage> {
                     data: SliderTheme.of(context).copyWith(
                       activeTrackColor: Colors.white,
                       inactiveTrackColor: Color(0xFF8D8E98),
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x29EB1555),
+                      thumbColor: Color(0xFF93c800),
+                      overlayColor: Color(0x3493C800B),
                       thumbShape:
                           RoundSliderThumbShape(enabledThumbRadius: 15.0),
                       overlayShape:
@@ -215,7 +248,7 @@ class _InputPageState extends State<InputPage> {
             onTap: () {
               CalculatorBrain calc =
                   CalculatorBrain(height: height, weight: weight);
-              Navigator.pushNamed(
+              Navigator.pushReplacementNamed(
                 context,
                 ResultPage.routeName,
                 arguments: ResultPage(

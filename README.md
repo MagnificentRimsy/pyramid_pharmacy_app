@@ -1,4 +1,4 @@
-# BMI_calculator
+# pyramid_pharmacy
 
 A new Flutter project.
 
